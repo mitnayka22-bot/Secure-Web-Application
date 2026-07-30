@@ -1,0 +1,73 @@
+body{
+    background:#f4f4f4;
+    color:#212529;
+    transition:background-color 0.3s, color 0.3s;
+}
+
+h1{
+    font-weight:bold;
+}
+
+.container{
+    margin-top:30px;
+}
+
+/* ---------------- DARK MODE ---------------- */
+
+[data-theme="dark"] body{
+    background:#121212;
+    color:#ffffff;
+}
+
+[data-theme="dark"] .navbar{
+    background:#000 !important;
+}
+
+[data-theme="dark"] .card{
+    background:#1e1e1e;
+    color:#ffffff;
+    border:1px solid #444;
+}
+
+[data-theme="dark"] .card-header,
+[data-theme="dark"] .card-footer{
+    background:#2b2b2b;
+    color:#ffffff;
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select{
+    background:#2b2b2b;
+    color:#ffffff;
+    border:1px solid #666;
+}
+
+[data-theme="dark"] .form-control:focus{
+    background:#2b2b2b;
+    color:#ffffff;
+    border-color:#888;
+    box-shadow:none;
+}
+
+[data-theme="dark"] .form-control::placeholder{
+    color:#cccccc;
+}
+
+[data-theme="dark"] .table{
+    color:#ffffff;
+}
+
+[data-theme="dark"] .alert{
+    color:#ffffff;
+}
+
+[data-theme="dark"] a{
+    color:#66b3ff;
+}
+
+[data-theme="dark"] .btn-outline-light{
+    border-color:#ffffff;
+    color:#ffffff;
+}

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}
+Security Testing
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+
+<h2 class="text-center">
+    Security Testing Dashboard 🔐
+</h2>
+
+
+<hr>
+
+
+<!-- XSS TEST -->
+
+<div class="card shadow p-4 mb-4">
+
+<h3>XSS Protection Test</h3>
+
+<p>
+Try entering:
+</p>
+
+<code>
+&lt;script&gt;alert("Hacked")&lt;/script&gt;
+</code>
+
+
+<form method="POST">
+
+<input type="hidden" 
+name="test_type" 
+value="xss">
+
+
+<input 
+type="text"
+name="xss_input"
+class="form-control"
+placeholder="Enter XSS payload">
+
+
+<br>
+
+<button class="btn btn-danger">
+Test XSS
+</button>
+
+</form>
+
+
+{% if xss_input %}
+
+<hr>
+
+<h5>Secure Output:</h5>
+
+<p>
+{{ xss_input }}
+</p>
+
+{% endif %}
+
+
+</div>
+
+
+
+<!-- SQL INJECTION TEST -->
+
+
+<div class="card shadow p-4">
+
+
+<h3>SQL Injection Protection Test</h3>
+
+
+<p>
+Try:
+</p>
+
+<code>
+' OR '1'='1
+</code>
+
+
+<form method="POST">
+
+
+<input type="hidden"
+name="test_type"
+value="sql">
+
+
+<input 
+type="text"
+name="email"
+class="form-control"
+placeholder="Enter SQL Injection">
+
+
+<br>
+
+
+<button class="btn btn-warning">
+Test SQL Injection
+</button>
+
+
+</form>
+
+
+{% if sql_result %}
+
+<hr>
+
+<p>
+{{ sql_result }}
+</p>
+
+{% endif %}
+
+
+</div>
+
+
+</div>
+
+
+{% endblock %}

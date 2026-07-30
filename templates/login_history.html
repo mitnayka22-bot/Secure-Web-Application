@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login History
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow p-4">
+
+        <h2>Login History</h2>
+
+        <table class="table table-bordered table-hover mt-3">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>IP Address</th>
+                    <th>Login Time</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for log in history %}
+
+                <tr>
+
+                    <td>{{ log.username }}</td>
+
+                    <td>{{ log.email }}</td>
+
+                    <td>
+                        {% if log.status == "Success" %}
+                            <span class="badge bg-success">
+                                Success
+                            </span>
+                        {% else %}
+                            <span class="badge bg-danger">
+                                Failed
+                            </span>
+                        {% endif %}
+                    </td>
+
+                    <td>{{ log.ip_address }}</td>
+
+                    <td>{{ log.login_time.strftime("%d-%m-%Y %I:%M:%S %p") }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
